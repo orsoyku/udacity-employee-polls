@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsersSuccess } from "./redux/actions/userActions";
+import AuthForm from "./components/AuthForm";
 
 const App = () => {
   const users = useSelector((state) => state.getUsersReducer.users);
@@ -9,7 +10,9 @@ const App = () => {
   useEffect(() => {
     dispatch(getUsersSuccess());
   }, []);
-  return <div className="App"></div>;
+  return <div className="App">
+    <AuthForm></AuthForm>
+  </div>;
 };
 
 export default App;
