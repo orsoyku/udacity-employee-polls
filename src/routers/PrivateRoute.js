@@ -3,17 +3,19 @@ import { useSelector } from "react-redux";
 import { Route, Navigate } from "react-router-dom";
 import TabBar from "../components/TabBar";
 
-const PrivateRoute = ({ isAuthenticated, component, ...rest }) => {
-  const auth = useSelector((state) => console.log("22", state));
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  console.log(Component);
+  const auth = useSelector((state) => console.log("auth", state));
   return (
     <Route
       {...rest}
       render={(props) => {
-        if (isAuthenticated) {
+        if (true) {
+          /**isAuthenticated */
           return;
           <div>
             <TabBar />
-            <component {...rest} />;
+            <Component {...rest} />;
           </div>;
         }
         return <Navigate to="/login" />;

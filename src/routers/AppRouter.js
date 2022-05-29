@@ -9,9 +9,9 @@ const AppRouter = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" exact component={<LoginPage />}></Route>
-        {/* <Route path="/login" element={<PrivateRoute component={LoginPage} />} /> */}
-        <PrivateRoute path="/login" exact component={LoginPage}></PrivateRoute>
+        <Route path="/" exact element={<LoginPage />}></Route>
+        <Route path="/login" element={<PrivateRoute component={LoginPage} />} />
+        {/* <PrivateRoute path="/login" exact component={LoginPage}></PrivateRoute> */}
       </Routes>
     </div>
   );
