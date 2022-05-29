@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { login } from "./redux/actions/loginActions";
+import { login } from "../../redux/actions/loginActions";
 import "./styles.css";
 const AuthForm = () => {
   const [loginInfo, setLoginInfo] = useState({});
@@ -8,13 +8,13 @@ const AuthForm = () => {
 
   const handleChange = (e) => {
     setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value });
-    dispatch(login(loginInfo));
   };
 
   const loginSubmit = (e) => {
     e.preventDefault();
-    handleChange();
+    dispatch(login(loginInfo));
   };
+
   return (
     <div className="authForm">
       <div className="container">
@@ -22,13 +22,13 @@ const AuthForm = () => {
           <div className="col-md-4">
             <form id="loginform" onSubmit={loginSubmit}>
               <div className="form-group">
-                <label>Email address</label>
+                <label>Name</label>
                 <input
-                  type="email"
+                  type="text"
                   className="form-control"
                   id="NameInput"
-                  name="id"
-                  placeholder="Enter name"
+                  name="name"
+                  placeholder="Enter Name"
                   onChange={handleChange}
                 />
               </div>
@@ -37,6 +37,7 @@ const AuthForm = () => {
                 <input
                   type="password"
                   className="form-control"
+                  name="password"
                   id="password"
                   placeholder="Password"
                   onChange={handleChange}
