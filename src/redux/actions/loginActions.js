@@ -12,5 +12,8 @@ export const login = (creds) => (dispatch) => {
         payload: { isAuthenticated: true, id: user.id },
       });
     }
+    else{
+      alert("password or username is wrong..")
+    }
   }
 };

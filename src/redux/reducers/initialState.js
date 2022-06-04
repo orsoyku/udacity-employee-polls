@@ -1,5 +1,5 @@
 export default {
   users: [],
   questions: [],
-  AuthState: {},
+  AuthState: { isAuthenticated: false, id: null },
 };
