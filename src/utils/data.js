@@ -3,20 +3,8 @@ export let users = {
     id: "lokum123",
     password: "123",
     name: "Lokum Ors",
-    avatarURL: "../../images/snow.jpg",
-    answers: {
-      "8xf0y6ziyjabvozdd253nd": "optionOne",
-      "6ni6ok3ym7mf1p33lnez": "optionOne",
-      am8ehyc8byjqgar0jgpub9: "optionTwo",
-      loxhs1bqm25b708cmbf3g: "optionTwo",
-    },
-    questions: ["8xf0y6ziyjabvozdd253nd", "am8ehyc8byjqgar0jgpub9"],
-  },
-  oykuors: {
-    id: "oykuors",
-    password: "tyson",
-    name: "Oyku Ors",
-    avatarURL: "../../images/snow.jpg",
+    avatarURL:
+      "https://styles.redditmedia.com/t5_4r4wo0/styles/profileIcon_vzjf1h4h42b71.png?width=256&height=256&crop=256:256,smart&s=497bd9c0cf21ce17dc22a61a3fa604b55d4aa1cb",
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
       "6ni6ok3ym7mf1p33lnez": "optionOne",
@@ -29,7 +17,7 @@ export let users = {
     id: "sarahedo",
     password: "abc",
     name: "Sarah Edo",
-    avatarURL: "../../images/snow.jpg",
+    avatarURL: "https://www.shareicon.net/download/2015/09/18/103160_man.ico",
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
       "6ni6ok3ym7mf1p33lnez": "optionOne",
@@ -42,7 +30,8 @@ export let users = {
     id: "tylermcginnis",
     name: "Tyler McGinnis",
     password: "abcde",
-    avatarURL: "../../images/tyler.jpg",
+    avatarURL:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsu0Yh5RLMnCh3e5by-pqyzjtndOBUSaFazg&usqp=CAU",
     answers: {
       vthrdm985a262al8qx3do: "optionOne",
       xj352vofupe1dqz9emx13r: "optionTwo",
@@ -53,7 +42,7 @@ export let users = {
     id: "johndoe",
     name: "John Doe",
     password: "xxz",
-    avatarURL: "../../images/leaf.jpg",
+    avatarURL: "https://cdn.nutrabay.com/wp-content/uploads/2020/01/salon.png",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
       vthrdm985a262al8qx3do: "optionTwo",

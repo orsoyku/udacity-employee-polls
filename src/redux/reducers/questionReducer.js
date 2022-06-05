@@ -1,10 +1,9 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const questionReducer = (state = {}, action) => {
-  console.log(action);
   switch (action.type) {
     case actionTypes.GET_QUESTIONS:
-      return {};
+      return action.payload;
     case actionTypes.CREATE_QUESTION:
       return {
         ...state,

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createQuestion } from "../../redux/actions/questionActions";
+import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import { Form, Button } from "react-bootstrap";
 
 const NewQuestionForm = () => {
   const [options, setOptions] = useState({});
+  const navigate = useNavigate();
   const auth = useSelector((state) => state.loginReducer);
   const dispatch = useDispatch();
   const handleChange = (event) => {
@@ -13,15 +15,15 @@ const NewQuestionForm = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    const author = auth["id"];
-
-    dispatch(createQuestion({ ...options, author }));
+    try {
+      const author = auth["id"];
+      dispatch(createQuestion({ ...options, author }));
+      alert("Submit is success..");
+      navigate("/");
+    } catch (error) {
+      alert("Ups,something went wrong, try again..");
+    }
   };
-  debugger;
-  const answer = useSelector((state) => {
-    console.log(state);
-  });
-
   return (
     <div className="formContainer mt-5">
       <h2>Would You Rather</h2>
