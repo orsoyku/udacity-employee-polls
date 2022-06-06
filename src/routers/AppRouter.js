@@ -2,7 +2,8 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../components/Home";
 import Leaderboard from "../components/Leaderboard";
-import NewQuestionPage from '../components/NewQuestionPage';
+import NewQuestionPage from "../components/NewQuestionPage";
+import QuestionDetailPage from "../components/QuestionDetailPage";
 import LoginPage from "../components/LoginPage";
 import TabBar from "../components/TabBar";
 import PrivateRoute from "./PrivateRoute";
@@ -42,6 +43,16 @@ const AppRouter = () => {
             <PrivateRoute isAuthenticated={auth.isAuthenticated}>
               <TabBar />
               <NewQuestionPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/questions/:id"
+          exact
+          element={
+            <PrivateRoute isAuthenticated={auth.isAuthenticated}>
+              <TabBar />
+              <QuestionDetailPage />
             </PrivateRoute>
           }
         />

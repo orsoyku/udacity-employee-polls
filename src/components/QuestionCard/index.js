@@ -1,18 +1,19 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const QuestionCard = (props) => {
-  console.log("props", props);
   return (
-    <Card style={{ width: "16rem" }}>
+    <Card style={{ width: "16rem", margin: "2vh" }}>
       <Card.Img src={props.user.avatarURL} variant="top" />
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
+        <Card.Title>{props.user.name}</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          {new Date(props.question.timestamp).toLocaleString()}
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Link to={`/questions/${props.question.id}`}>
+          <Button variant="primary">Show</Button>
+        </Link>
       </Card.Body>
     </Card>
   );

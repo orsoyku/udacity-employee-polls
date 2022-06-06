@@ -39,19 +39,21 @@ const Home = () => {
       <section className="container">
         <div className="left-half">
           <h1>New Questions</h1>
-          {newQuestions.length > 0 ? (
-            newQuestions.map((newQuestion) => (
-              <QuestionCard
-                key={newQuestion.id}
-                question={newQuestion}
-                user={users[newQuestion.author]}
-              />
-            ))
-          ) : (
-            <Alert variant="success">
-              <p className="mb-0">No new question...</p>
-            </Alert>
-          )}
+          <div className="card-container">
+            {newQuestions.length > 0 ? (
+              newQuestions.map((newQuestion) => (
+                <QuestionCard
+                  key={newQuestion.id}
+                  question={newQuestion}
+                  user={users[newQuestion.author]}
+                />
+              ))
+            ) : (
+              <Alert variant="success">
+                <p className="mb-0">No new question...</p>
+              </Alert>
+            )}
+          </div>
         </div>
         <div className="right-half">
           <h1>Answered Questions</h1>
