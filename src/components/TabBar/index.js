@@ -1,8 +1,21 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Container, Navbar, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { logOut } from "../../redux/actions/loginActions";
+import { useSelector } from "react-redux";
 
 const TabBar = () => {
+  debugger;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // const users = useSelector((state) => state.getUsersReducer);
+  // const auth = useSelector((state) => state.loginReducer);
+  // const author = users[auth.id];
+  const logoutHandler = () => {
+    dispatch(logOut());
+    navigate("/login");
+  };
   return (
     <div>
       {" "}
@@ -24,6 +37,12 @@ const TabBar = () => {
                 New
               </Link>
             </Navbar.Brand>
+          </Nav>
+          <Nav>
+            <Nav.Link>logout</Nav.Link>
+          </Nav>
+          <Nav>
+            <Nav.Link onClick={() => logoutHandler()}>logout</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

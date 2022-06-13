@@ -11,6 +11,10 @@ export const createQuestion = (questionInfo) => (dispatch) => {
       type: actionTypes.CREATE_QUESTION,
       payload: response,
     });
+    dispatch({
+      type: actionTypes.ADD_QUESTION_TO_USER,
+      payload: response,
+    });
   });
 };
 
@@ -21,7 +25,14 @@ export const getQuestions = () => (dispatch) => {
 };
 
 export const saveQuestionAnswer = (authedUser, qid, answer) => (dispatch) => {
-  _saveQuestionAnswer(authedUser, qid, answer).then((response) => {
-    dispatch({ type: actionTypes.SAVE_QUESTION_ANSWER, payload: response });
+  _saveQuestionAnswer({ authedUser, qid, answer }).then(() => {
+    dispatch({
+      type: actionTypes.ANSWER_QUESTION,
+      payload: { authedUser, qid, answer },
+    });
+    dispatch({
+      type: actionTypes.ADD_ANSWER_TO_USER,
+      payload: { authedUser, qid, answer },
+    });
   });
 };

@@ -8,12 +8,18 @@ export const login = (creds) => (dispatch) => {
     if (user.password === password) {
       alert("login is success");
       dispatch({
-        type: actionTypes.LOGIN_REQUEST_SUCCESS,
+        type: actionTypes.LOGIN_REQUEST_CHECK,
         payload: { isAuthenticated: true, id: user.id },
       });
-    }
-    else{
-      alert("password or username is wrong..")
+    } else {
+      alert("password or username is wrong..");
     }
   }
+};
+
+export const logOut = () => {
+  return {
+    type: actionTypes.LOGIN_REQUEST_CHECK,
+    payload: { isAuthenticated: false, id: null },
+  };
 };

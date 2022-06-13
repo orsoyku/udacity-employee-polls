@@ -29,7 +29,7 @@ export let users = {
   tylermcginnis: {
     id: "tylermcginnis",
     name: "Tyler McGinnis",
-    password: "abcde",
+    password: "123",
     avatarURL:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsu0Yh5RLMnCh3e5by-pqyzjtndOBUSaFazg&usqp=CAU",
     answers: {
@@ -169,7 +169,6 @@ function formatQuestion({ optionOneText, optionTwoText, author }) {
 }
 
 export function _saveQuestion(question) {
-  debugger;
   return new Promise((res, rej) => {
     const authedUser = question.author;
     const formattedQuestion = formatQuestion(question);
@@ -221,4 +220,17 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
       res();
     }, 500);
   });
+}
+
+export function calculateRates(optionOneVotes, optionTwoVotes) {
+  const totalVotes = optionOneVotes.length + optionTwoVotes.length;
+
+  const optionOneVoteRate = Math.round(
+    (optionOneVotes.length / totalVotes) * 100
+  );
+  const optionTwoVoteRate = Math.round(
+    (optionTwoVotes.length / totalVotes) * 100
+  );
+
+  return { optionOneVoteRate, optionTwoVoteRate };
 }
