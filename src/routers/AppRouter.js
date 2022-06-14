@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getAllInitialData } from "../redux/actions/firstInitialAction";
 import Home from "../components/Home";
 import Leaderboard from "../components/Leaderboard";
 import NewQuestionPage from "../components/NewQuestionPage";
@@ -11,7 +13,10 @@ import { useSelector } from "react-redux";
 
 const AppRouter = () => {
   const auth = useSelector((state) => state.loginReducer);
-  console.log(auth);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllInitialData());
+  }, []);
   return (
     <div>
       <Routes>

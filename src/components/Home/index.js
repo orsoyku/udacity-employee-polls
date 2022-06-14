@@ -3,13 +3,12 @@ import { getQuestions } from "../../redux/actions/questionActions";
 import { getUsersSuccess } from "../../redux/actions/userActions";
 import { Alert } from "react-bootstrap";
 import "./styles.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import QuestionCard from "../QuestionCard/index";
 
 const Home = () => {
   const users = useSelector((state) => state.getUsersReducer);
   const auth = useSelector((state) => state.loginReducer);
-  const dispatch = useDispatch();
 
   const questions = useSelector((state) =>
     Object.values(state.questionReducer)
@@ -26,11 +25,6 @@ const Home = () => {
       !question.optionOne.votes.includes(auth.id) &&
       !question.optionTwo.votes.includes(auth.id)
   );
-
-  useEffect(() => {
-    dispatch(getUsersSuccess());
-    dispatch(getQuestions());
-  }, []);
 
   return (
     <div>

@@ -17,6 +17,16 @@ export const login = (creds) => (dispatch) => {
   }
 };
 
+// export const login = (creds) => (dispatch) => {
+//   if (Object.values(users).includes(creds)) {
+//     alert("login is success");
+//     dispatch({
+//       type: actionTypes.LOGIN_REQUEST_CHECK,
+//       payload: { isAuthenticated: true, id: creds },
+//     });
+//   }
+// };
+
 export const logOut = () => {
   return {
     type: actionTypes.LOGIN_REQUEST_CHECK,

@@ -1,7 +1,6 @@
 import * as actionTypes from "./actionTypes";
 import {
   _saveQuestion,
-  _getQuestions,
   _saveQuestionAnswer,
 } from "../../utils/data";
 
@@ -15,12 +14,6 @@ export const createQuestion = (questionInfo) => (dispatch) => {
       type: actionTypes.ADD_QUESTION_TO_USER,
       payload: response,
     });
-  });
-};
-
-export const getQuestions = () => (dispatch) => {
-  _getQuestions().then((response) => {
-    dispatch({ type: actionTypes.GET_QUESTIONS, payload: response });
   });
 };
 
