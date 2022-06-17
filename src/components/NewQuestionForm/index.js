@@ -17,9 +17,13 @@ const NewQuestionForm = () => {
     event.preventDefault();
     try {
       const author = auth["id"];
-      dispatch(createQuestion({ ...options, author }));
-      alert("Submit is success..");
-      navigate("/");
+      if (options.optionOneText && options.optionTwoText) {
+        dispatch(createQuestion({ ...options, author }));
+        alert("Submit is success..");
+        navigate("/");
+      } else {
+        alert("Please enter options correctly..");
+      }
     } catch (error) {
       alert("Ups,something went wrong, try again..");
     }

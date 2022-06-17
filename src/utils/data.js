@@ -172,53 +172,62 @@ export function _saveQuestion(question) {
   return new Promise((res, rej) => {
     const authedUser = question.author;
     const formattedQuestion = formatQuestion(question);
+    if (question) {
+      setTimeout(() => {
+        questions = {
+          ...questions,
+          [formattedQuestion.id]: formattedQuestion,
+        };
 
-    setTimeout(() => {
-      questions = {
-        ...questions,
-        [formattedQuestion.id]: formattedQuestion,
-      };
+        users = {
+          ...users,
+          [authedUser]: {
+            ...users[authedUser],
+            questions: users[authedUser].questions.concat([
+              formattedQuestion.id,
+            ]),
+          },
+        };
 
-      users = {
-        ...users,
-        [authedUser]: {
-          ...users[authedUser],
-          questions: users[authedUser].questions.concat([formattedQuestion.id]),
-        },
-      };
-
-      res(formattedQuestion);
-    }, 1000);
+        res(formattedQuestion);
+      }, 1000);
+    } else {
+      rej("Please enter the fields correctly.");
+    }
   });
 }
 
 export function _saveQuestionAnswer({ authedUser, qid, answer }) {
   return new Promise((res, rej) => {
-    setTimeout(() => {
-      users = {
-        ...users,
-        [authedUser]: {
-          ...users[authedUser],
-          answers: {
-            ...users[authedUser].answers,
-            [qid]: answer,
+    if (authedUser && qid && answer) {
+      setTimeout(() => {
+        users = {
+          ...users,
+          [authedUser]: {
+            ...users[authedUser],
+            answers: {
+              ...users[authedUser].answers,
+              [qid]: answer,
+            },
           },
-        },
-      };
+        };
 
-      questions = {
-        ...questions,
-        [qid]: {
-          ...questions[qid],
-          [answer]: {
-            ...questions[qid][answer],
-            votes: questions[qid][answer].votes.concat([authedUser]),
+        questions = {
+          ...questions,
+          [qid]: {
+            ...questions[qid],
+            [answer]: {
+              ...questions[qid][answer],
+              votes: questions[qid][answer].votes.concat([authedUser]),
+            },
           },
-        },
-      };
+        };
 
-      res();
-    }, 500);
+        res();
+      }, 500);
+    } else {
+      rej("Please enter the fields correctly.");
+    }
   });
 }
 

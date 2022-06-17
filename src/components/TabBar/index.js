@@ -6,11 +6,11 @@ import { logOut } from "../../redux/actions/loginActions";
 import { useSelector } from "react-redux";
 
 const TabBar = () => {
-  debugger;
+  debugger
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const users = useSelector((state) => state.getUsersReducer);
-  // const auth = useSelector((state) => state.loginReducer);
+  const users = useSelector((state) => state.getUsersReducer);
+  const auth = useSelector((state) => state.loginReducer);
   // const author = users[auth.id];
   const logoutHandler = () => {
     dispatch(logOut());

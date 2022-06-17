@@ -6,7 +6,6 @@ import { Button } from "react-bootstrap";
 import { saveQuestionAnswer } from "../../redux/actions/questionActions";
 import "./styles.css";
 const QuestionDetailPage = () => {
-  debugger;
   const [disabledStatus, setDisabledStatus] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
