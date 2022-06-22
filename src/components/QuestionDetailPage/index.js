@@ -14,7 +14,7 @@ const QuestionDetailPage = () => {
   const questions = useSelector((state) => {
     return Object.values(state.questionReducer);
   });
-  debugger
+  
   const selectedQuestion = questions
     ? questions.find((question) => question.id === id)
     : null;

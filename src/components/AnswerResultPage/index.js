@@ -3,7 +3,6 @@ import { Alert } from "react-bootstrap";
 import { calculateRates } from "../../utils/data";
 
 const AnswerResultPage = ({ question, userId }) => {
-  debugger
   const optionOneVotes = question?.optionOne.votes;
   const optionTwoVotes = question?.optionTwo.votes;
 

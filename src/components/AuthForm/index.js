@@ -11,7 +11,6 @@ const AuthForm = () => {
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
-    debugger
     setLoginInfo(e.target.value);
   };
 
