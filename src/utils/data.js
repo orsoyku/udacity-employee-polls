@@ -168,11 +168,19 @@ function formatQuestion({ optionOneText, optionTwoText, author }) {
   };
 }
 
+function isValidQuestion(question) {
+  if (!question || Object.keys(question).length === 0) {
+    return false;
+  }
+
+  return !(!('author' in question) || !('optionOneText' in question) || !('optionTwoText' in question));
+}
+
 export function _saveQuestion(question) {
-  return new Promise((res, rej) => {
-    const authedUser = question.author;
-    const formattedQuestion = formatQuestion(question);
-    if (question) {
+  return new Promise((resolve, reject) => {
+    if (isValidQuestion(question)) {
+      const authedUser = question.author;
+      const formattedQuestion = formatQuestion(question);
       setTimeout(() => {
         questions = {
           ...questions,
@@ -183,23 +191,23 @@ export function _saveQuestion(question) {
           ...users,
           [authedUser]: {
             ...users[authedUser],
-            questions: users[authedUser].questions.concat([
+            questions: users[authedUser]?.questions.concat([
               formattedQuestion.id,
             ]),
           },
         };
 
-        res(formattedQuestion);
+        resolve(formattedQuestion);
       }, 1000);
     } else {
-      rej("Please enter the fields correctly.");
+      reject("Please enter the fields correctly.");
     }
   });
 }
 
-export function _saveQuestionAnswer({ authedUser, qid, answer }) {
-  return new Promise((res, rej) => {
-    if (authedUser && qid && answer) {
+export function _saveQuestionAnswer({ authedUser = '', qid = '', answer = '' }) {
+  return new Promise((resolve, reject) => {
+    if (authedUser.length > 0 && qid.length > 0 && answer.length > 0) {
       setTimeout(() => {
         users = {
           ...users,
@@ -223,10 +231,10 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
           },
         };
 
-        res();
+        resolve(true);
       }, 500);
     } else {
-      rej("Please enter the fields correctly.");
+      reject("Please enter the fields correctly.");
     }
   });
 }

@@ -1,9 +1,6 @@
 import { _saveQuestion, _saveQuestionAnswer } from "../utils/data";
-describe("data js test", () => {
-  it("testtttt", async () => {
-    // actual test
-  });
 
+describe("data js test", () => {
   it("will true if formatted question is passed", async () => {
     const item = {
       author: "lokum123",
@@ -43,16 +40,6 @@ describe("data js test", () => {
     );
   });
 
-  it("Return an error is returned if incorrect data is passed to the function-4.", async () => {
-    const item = {
-      author: "lokum123",
-      optionTwoText: "Üç renkli kediler dişidir.",
-    };
-    await expect(_saveQuestion(item)).rejects.toEqual(
-      "Please enter the fields correctly."
-    );
-  });
-
   it("should save the given answer", async () => {
     const answer = {
       authedUser: "lokum123",
@@ -65,7 +52,7 @@ describe("data js test", () => {
   });
 
   it("should not save the given invalid answer", async () => {
-    const item = null;
+    const item = { authedUser: "lokum123"};
     await expect(_saveQuestionAnswer(item)).rejects.toEqual(
       "Please enter the fields correctly."
     );

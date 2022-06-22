@@ -14,7 +14,7 @@ const QuestionDetailPage = () => {
   const questions = useSelector((state) => {
     return Object.values(state.questionReducer);
   });
-
+  debugger
   const selectedQuestion = questions
     ? questions.find((question) => question.id === id)
     : null;
@@ -23,12 +23,9 @@ const QuestionDetailPage = () => {
   const selectedUser = users ? users[selectedQuestion.author] : null;
   const auth = useSelector((state) => state.loginReducer);
 
-  const answeredQuestions = questions.filter(
-    (question) =>
-      question.optionOne.votes.includes(auth.id) ||
-      question.optionTwo.votes.includes(auth.id)
-  );
+  const answeredQuestionsStatus = selectedQuestion.optionOne.votes.includes(auth.id) || selectedQuestion.optionTwo.votes.includes(auth.id)
 
+ 
   const handleAnswer = (option) => {
     const author = auth["id"];
     dispatch(saveQuestionAnswer(author, id, option));
@@ -59,8 +56,8 @@ const QuestionDetailPage = () => {
             {selectedQuestion.optionTwo.text}
           </Button>
         </div>
-        {answeredQuestions.length > 0 && (
-          <AnswerResultpage userId={auth.id} question={answeredQuestions} />
+        {answeredQuestionsStatus && (
+          <AnswerResultpage userId={auth.id} question={selectedQuestion} />
         )}
       </div>
     </>

@@ -6,12 +6,12 @@ import { logOut } from "../../redux/actions/loginActions";
 import { useSelector } from "react-redux";
 
 const TabBar = () => {
-  debugger
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  
   const users = useSelector((state) => state.getUsersReducer);
   const auth = useSelector((state) => state.loginReducer);
-  // const author = users[auth.id];
+  const author = users[auth.id];
   const logoutHandler = () => {
     dispatch(logOut());
     navigate("/login");
@@ -39,7 +39,8 @@ const TabBar = () => {
             </Navbar.Brand>
           </Nav>
           <Nav>
-            <Nav.Link>logout</Nav.Link>
+            <Nav.Link><img className="avatar" style={{ width: "1.5rem" }} alt="avatar" src={author.avatarURL}></img></Nav.Link>
+            <Nav.Link>{author.name}</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link onClick={() => logoutHandler()}>logout</Nav.Link>

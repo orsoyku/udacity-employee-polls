@@ -2,7 +2,6 @@ import * as actionTypes from "./actionTypes";
 import { users } from "../../utils/data";
 
 export const login = (userId) => (dispatch) => {
-  debugger;
   if (Object.keys(users).includes(userId)) {
     alert("login is success");
     dispatch({

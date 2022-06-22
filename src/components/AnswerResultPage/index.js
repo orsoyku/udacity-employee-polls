@@ -3,8 +3,9 @@ import { Alert } from "react-bootstrap";
 import { calculateRates } from "../../utils/data";
 
 const AnswerResultPage = ({ question, userId }) => {
-  const optionOneVotes = question[0].optionOne.votes;
-  const optionTwoVotes = question[0].optionTwo.votes;
+  debugger
+  const optionOneVotes = question?.optionOne.votes;
+  const optionTwoVotes = question?.optionTwo.votes;
 
   const chosenOptionOne = optionOneVotes.includes(userId);
   const chosenOptionTwo = optionTwoVotes.includes(userId);
@@ -16,7 +17,7 @@ const AnswerResultPage = ({ question, userId }) => {
       {!chosenOptionTwo && (
         <Alert style={{ width: "25rem", margin: "2vh" }} variant="success">
           <Alert.Heading>
-            Selected option: {question[0].optionOne.text}
+            Selected option: {question.optionOne.text}
           </Alert.Heading>
           <p>{optionOneVotes.length} employees voted for this answer.</p>
           <hr />
@@ -29,7 +30,7 @@ const AnswerResultPage = ({ question, userId }) => {
       {!chosenOptionOne && (
         <Alert style={{ width: "25rem", margin: "2vh" }} variant="success">
           <Alert.Heading>
-            Selected option: {question[0].optionTwo.text}
+            Selected option: {question.optionTwo.text}
           </Alert.Heading>
           <p>{optionTwoVotes.length} employees voted for this answer.</p>
           <hr />

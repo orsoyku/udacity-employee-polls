@@ -5,12 +5,13 @@ import { Form } from "react-bootstrap";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
 const AuthForm = () => {
-  const [loginInfo, setLoginInfo] = useState({});
+  const [loginInfo, setLoginInfo] = useState("");
   const navigate = useNavigate();
   const users = Object.values(useSelector((state) => state.getUsersReducer));
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
+    debugger
     setLoginInfo(e.target.value);
   };
 
@@ -31,7 +32,7 @@ const AuthForm = () => {
           <div className="col-md-4">
             <form id="loginform" onSubmit={loginSubmit}>
               <div className="form-group">
-                <Form.Select size="lg" name="cred" onChange={handleChange}>
+                <Form.Select data-testid="cred" size="lg" name="cred" onChange={handleChange}>
                   <option value="">Please select a user...</option>
                   {users.map((user) => (
                     <option key={user.id} value={user.id}>
@@ -40,7 +41,7 @@ const AuthForm = () => {
                   ))}
                 </Form.Select>
               </div>
-              <button type="submit" className="btn btn-primary mt-2">
+              <button data-testid="submitButton" disabled={loginInfo === ""} type="submit" className="btn btn-primary mt-2">
                 Submit
               </button>
             </form>
