@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import "./styles.css";
 
 const Leaderboard = () => {
+  debugger
   const users = Object.values(useSelector((state) => state.getUsersReducer));
   users.map(
     (user) =>

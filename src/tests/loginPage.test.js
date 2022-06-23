@@ -33,7 +33,7 @@ describe("Login page testing", () => {
     const cred = loginPage.getByTestId("cred");
     const submitButton = loginPage.getByTestId("submitButton");
     fireEvent.change(cred, { target: { value: '' } });
-    expect(submitButton).not.toBeDisabled();
+    expect(submitButton).toBeDisabled();
   });
 
 });

@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import QuestionCard from "../QuestionCard/index";
 
 const Home = () => {
+  debugger
   const users = useSelector((state) => state.getUsersReducer);
   const auth = useSelector((state) => state.loginReducer);
 
@@ -18,13 +19,13 @@ const Home = () => {
     (question) =>
       question.optionOne.votes.includes(auth.id) ||
       question.optionTwo.votes.includes(auth.id)
-  );
+  ).sort((a, b) => b.timestamp - a.timestamp);;
 
   const newQuestions = questions.filter(
     (question) =>
       !question.optionOne.votes.includes(auth.id) &&
       !question.optionTwo.votes.includes(auth.id)
-  );
+  ).sort((a, b) => b.timestamp - a.timestamp);;
 
   return (
     <div>

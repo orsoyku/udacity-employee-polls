@@ -8,6 +8,7 @@ import NewQuestionPage from "../components/NewQuestionPage";
 import QuestionDetailPage from "../components/QuestionDetailPage";
 import LoginPage from "../components/LoginPage";
 import TabBar from "../components/TabBar";
+import NotFound from "../components/NotFound";
 import PrivateRoute from "./PrivateRoute";
 import { useSelector } from "react-redux";
 
@@ -61,6 +62,7 @@ const AppRouter = () => {
             </PrivateRoute>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

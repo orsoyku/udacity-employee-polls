@@ -40,6 +40,16 @@ describe("data js test", () => {
     );
   });
 
+  it("Return an error is returned if incorrect data is passed to the function-3.", async () => {
+    const item = {
+      optionOneText: "Üç renkli kediler dişidir.",
+      optionTwoText: null
+    };
+    await expect(_saveQuestion(item)).rejects.toEqual(
+      "Please enter the fields correctly."
+    );
+  });
+
   it("should save the given answer", async () => {
     const answer = {
       authedUser: "lokum123",
@@ -53,6 +63,13 @@ describe("data js test", () => {
 
   it("should not save the given invalid answer", async () => {
     const item = { authedUser: "lokum123"};
+    await expect(_saveQuestionAnswer(item)).rejects.toEqual(
+      "Please enter the fields correctly."
+    );
+  });
+
+  it("should not save the given invalid answer", async () => {
+    const item = { authedUser: "lokum123",qid: "8xf0y6ziyjabvozdd253nd"};
     await expect(_saveQuestionAnswer(item)).rejects.toEqual(
       "Please enter the fields correctly."
     );

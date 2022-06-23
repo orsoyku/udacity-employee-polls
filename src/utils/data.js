@@ -1,18 +1,4 @@
 export let users = {
-  lokum123: {
-    id: "lokum123",
-    password: "123",
-    name: "Lokum Ors",
-    avatarURL:
-      "https://styles.redditmedia.com/t5_4r4wo0/styles/profileIcon_vzjf1h4h42b71.png?width=256&height=256&crop=256:256,smart&s=497bd9c0cf21ce17dc22a61a3fa604b55d4aa1cb",
-    answers: {
-      "8xf0y6ziyjabvozdd253nd": "optionOne",
-      "6ni6ok3ym7mf1p33lnez": "optionOne",
-      am8ehyc8byjqgar0jgpub9: "optionTwo",
-      loxhs1bqm25b708cmbf3g: "optionTwo",
-    },
-    questions: ["8xf0y6ziyjabvozdd253nd", "am8ehyc8byjqgar0jgpub9"],
-  },
   sarahedo: {
     id: "sarahedo",
     password: "abc",
@@ -21,8 +7,8 @@ export let users = {
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
       "6ni6ok3ym7mf1p33lnez": "optionOne",
-      am8ehyc8byjqgar0jgpub9: "optionTwo",
-      loxhs1bqm25b708cmbf3g: "optionTwo",
+      "am8ehyc8byjqgar0jgpub9": "optionTwo",
+      "loxhs1bqm25b708cmbf3g": "optionTwo",
     },
     questions: ["8xf0y6ziyjabvozdd253nd", "am8ehyc8byjqgar0jgpub9"],
   },
@@ -33,8 +19,8 @@ export let users = {
     avatarURL:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsu0Yh5RLMnCh3e5by-pqyzjtndOBUSaFazg&usqp=CAU",
     answers: {
-      vthrdm985a262al8qx3do: "optionOne",
-      xj352vofupe1dqz9emx13r: "optionTwo",
+      "vthrdm985a262al8qx3do": "optionOne",
+      "xj352vofupe1dqz9emx13r": "optionTwo",
     },
     questions: ["loxhs1bqm25b708cmbf3g", "vthrdm985a262al8qx3do"],
   },
@@ -44,8 +30,8 @@ export let users = {
     password: "xxz",
     avatarURL: "https://cdn.nutrabay.com/wp-content/uploads/2020/01/salon.png",
     answers: {
-      xj352vofupe1dqz9emx13r: "optionOne",
-      vthrdm985a262al8qx3do: "optionTwo",
+      "xj352vofupe1dqz9emx13r": "optionOne",
+      "vthrdm985a262al8qx3do": "optionTwo",
       "6ni6ok3ym7mf1p33lnez": "optionOne",
     },
     questions: ["6ni6ok3ym7mf1p33lnez", "xj352vofupe1dqz9emx13r"],

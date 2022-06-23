@@ -1,6 +1,7 @@
 import * as actionTypes from "../actions/actionTypes";
 
 export default function usersReducer(state = {}, action) {
+  debugger
   switch (action.type) {
     case actionTypes.ADD_QUESTION_TO_USER:
       return {
@@ -27,3 +28,4 @@ export default function usersReducer(state = {}, action) {
       return state;
   }
 }
+
