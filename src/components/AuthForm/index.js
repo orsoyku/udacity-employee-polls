@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const AuthForm = () => {
   const [loginInfo, setLoginInfo] = useState("");
   const navigate = useNavigate();
-  const users = Object.values(useSelector((state) => state.getUsersReducer));
+  const users = Object.values(useSelector((state) => state.usersReducer));
   const dispatch = useDispatch();
 
   const handleChange = (e) => {

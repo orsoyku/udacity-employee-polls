@@ -9,7 +9,7 @@ const TabBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   
-  const users = useSelector((state) => state.getUsersReducer);
+  const users = useSelector((state) => state.usersReducer);
   const auth = useSelector((state) => state.loginReducer);
   const author = users[auth.id];
   const logoutHandler = () => {

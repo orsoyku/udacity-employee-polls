@@ -19,7 +19,7 @@ const QuestionDetailPage = () => {
     ? questions.find((question) => question.id === id)
     : null;
 
-  const users = useSelector((state) => state.getUsersReducer);
+  const users = useSelector((state) => state.usersReducer);
   const selectedUser = users ? users[selectedQuestion.author] : null;
   const auth = useSelector((state) => state.loginReducer);
 

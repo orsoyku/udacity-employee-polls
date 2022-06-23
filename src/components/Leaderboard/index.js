@@ -5,7 +5,7 @@ import "./styles.css";
 
 const Leaderboard = () => {
   debugger
-  const users = Object.values(useSelector((state) => state.getUsersReducer));
+  const users = Object.values(useSelector((state) => state.usersReducer));
   users.map(
     (user) =>
       (user.score = user.questions.length + Object.keys(user.answers).length)

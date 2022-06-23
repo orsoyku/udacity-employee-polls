@@ -1,8 +1,10 @@
+import initialState from "./initialState";
 import * as actionTypes from "../actions/actionTypes";
 
-export default function usersReducer(state = {}, action) {
-  debugger
+export default function usersReducer(state = initialState.users, action) {
   switch (action.type) {
+    case actionTypes.GET_USERS_SUCCESS:
+      return action.payload;
     case actionTypes.ADD_QUESTION_TO_USER:
       return {
         ...state,
@@ -28,4 +30,5 @@ export default function usersReducer(state = {}, action) {
       return state;
   }
 }
+
 
