@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import QuestionCard from "../QuestionCard/index";
 
 const Home = () => {
-  debugger
   const users = useSelector((state) => state.getUsersReducer);
   const auth = useSelector((state) => state.loginReducer);
 

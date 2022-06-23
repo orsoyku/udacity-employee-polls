@@ -14,7 +14,7 @@ const questionReducer = (state = {}, action) => {
         [action.payload.id]: action.payload,
       };
     case actionTypes.ANSWER_QUESTION:
-      let result = {
+      return {
         ...state,
         [action.payload.qid]: {
           ...state[action.payload.qid],
@@ -26,7 +26,6 @@ const questionReducer = (state = {}, action) => {
           },
         },
       };
-      return result;
     default:
       return state;
   }
