@@ -43,7 +43,7 @@ const AppRouter = () => {
           }
         />
         <Route
-          path="/new"
+          path="/add"
           exact
           element={
             <PrivateRoute isAuthenticated={auth.isAuthenticated}>

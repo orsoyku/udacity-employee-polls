@@ -1,11 +1,14 @@
 import React from "react";
-
-import { Route, Navigate } from "react-router-dom";
-import TabBar from "../components/TabBar";
+import {  Navigate, useParams, useLocation } from "react-router-dom";
 
 const PrivateRoute = ({ isAuthenticated, children }) => {
+  let path = useLocation();
   if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
+    if (path != undefined && 'pathname' in path) {
+      return <Navigate to="/login" state={{ from: path.pathname }} replace />;
+    } else {
+      return <Navigate to="/login" replace />;
+    }
   }
   return children;
 };

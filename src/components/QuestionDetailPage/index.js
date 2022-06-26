@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import AnswerResultpage from "../AnswerResultPage/index";
@@ -20,22 +20,22 @@ const QuestionDetailPage = () => {
     : null;
 
   const users = useSelector((state) => state.usersReducer);
-  const selectedUser = users ? users[selectedQuestion.author] : null;
+  const selectedUser = users && selectedQuestion !== undefined ? users[selectedQuestion.author] : null;
   const auth = useSelector((state) => state.loginReducer);
 
-  const answeredQuestionsStatus = selectedQuestion.optionOne.votes.includes(auth.id) || selectedQuestion.optionTwo.votes.includes(auth.id)
+  const answeredQuestionsStatus = selectedQuestion?.optionOne.votes.includes(auth.id) || selectedQuestion?.optionTwo.votes.includes(auth.id)
 
- 
   const handleAnswer = (option) => {
     const author = auth["id"];
     dispatch(saveQuestionAnswer(author, id, option));
     navigate("/questions/" + id);
     setDisabledStatus(true);
   };
-
+ 
   return (
     <>
-      <div className="question-container">
+    {selectedQuestion ? 
+     (<div className="question-container">
         <img className="avatar" alt="avatar" src={selectedUser.avatarURL}></img>
         <h3 className="text">Would You Rather</h3>
         <div className="option-text">
@@ -59,7 +59,7 @@ const QuestionDetailPage = () => {
         {answeredQuestionsStatus && (
           <AnswerResultpage userId={auth.id} question={selectedQuestion} />
         )}
-      </div>
+      </div>)  : (<div className="not-found-question"><div className="not-found-text">Selected question does not exist..</div></div>)}
     </>
   );
 };

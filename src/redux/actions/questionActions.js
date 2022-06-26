@@ -20,7 +20,6 @@ export const createQuestion = (questionInfo) => (dispatch) => {
 };
 
 export const saveQuestionAnswer = (authedUser, qid, answer) => (dispatch) => {
-  debugger
   if (authedUser && qid && answer) {
     _saveQuestionAnswer({ authedUser, qid, answer }).then(() => {
       dispatch(answerQuestion({authedUser, qid, answer}))

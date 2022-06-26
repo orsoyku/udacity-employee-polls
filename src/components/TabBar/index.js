@@ -33,7 +33,7 @@ const TabBar = () => {
               </Link>
             </Navbar.Brand>
             <Navbar.Brand>
-              <Link to="/new" style={{ textDecoration: "none" }}>
+              <Link to="/add" style={{ textDecoration: "none" }}>
                 New
               </Link>
             </Navbar.Brand>
